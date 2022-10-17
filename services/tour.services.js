@@ -11,7 +11,12 @@ exports.createTourService = async (data) => {
     return tour;
 }
 
-exports.getTourById = async (id) => {
+exports.getTourByIdService = async (id) => {
     const data = await Tour.find({ _id: id });
+    console.log(id);
     return data;
 }
+
+// exports.updateProductByIdService = async (id) => {
+//     console.log(id)
+// }

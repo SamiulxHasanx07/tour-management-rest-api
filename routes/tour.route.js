@@ -7,6 +7,7 @@ router.route("/")
     .post(tourController.createTour)
 
 router.route("/:id")
-    .get(viewCount, tourController.getTourByID )
+    .get(viewCount, tourController.getTourByID)
+    .patch(tourController.updateProductById)
 
 module.exports = router;

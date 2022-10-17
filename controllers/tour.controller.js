@@ -1,4 +1,4 @@
-const { createTourService, getToursService, getTourById } = require("../services/tour.services");
+const { createTourService, getToursService, getTourByIdService } = require("../services/tour.services");
 
 exports.getTours = async (req, res, next) => {
     try {
@@ -41,7 +41,7 @@ exports.createTour = async (req, res, next) => {
 exports.getTourByID = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const result = await getTourById(id);
+        const result = await getTourByIdService(id);
         res.status(200).json({
             status: "successsful",
             message: `Data for this ${id}`,
@@ -55,4 +55,8 @@ exports.getTourByID = async (req, res, next) => {
             error: error.message
         })
     }
+}
+
+exports.updateProductById = (req, res, next) => {
+
 }
