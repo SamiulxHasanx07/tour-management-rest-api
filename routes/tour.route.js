@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const tourController = require("../controllers/tour.controller");
 router.route("/")
-    .get()
+    .get(tourController.getTours)
     .post(tourController.createTour)
 
 module.exports = router;
