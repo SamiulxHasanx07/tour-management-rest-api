@@ -6,9 +6,12 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
+//Routes
+const tourRoute = require("./routes/tour.route");
+app.use("/api/v1.0/tours", tourRoute)
 
 app.get("/", (req, res) => {
-    res.send("Router Is working")
+    res.send("Tour Management rest API!")
 })
 
 module.exports = app;
