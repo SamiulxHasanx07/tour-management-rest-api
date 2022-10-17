@@ -26,6 +26,10 @@ const tourSchema = mongoose.Schema({
             values: ["single", "couple", "family"]
         }
     },
+    view: {
+        type: Number,
+        default: 0
+    },
     available: {
         type: String,
         enum: {

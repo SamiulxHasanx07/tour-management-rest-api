@@ -42,7 +42,6 @@ exports.getTourByID = async (req, res, next) => {
     try {
         const { id } = req.params;
         const result = await getTourById(id);
-
         res.status(200).json({
             status: "successsful",
             message: `Data for this ${id}`,
