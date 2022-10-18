@@ -17,5 +17,8 @@ router.route("/tour/:id")
 router.route("/tour/trending")
     .get(tourController.trendingTours)
 
+router.route("/tour/cheapest")
+    .get(tourController.cheapestTours)
+
 
 module.exports = router;
