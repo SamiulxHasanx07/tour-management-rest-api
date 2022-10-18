@@ -2,7 +2,27 @@ const { createTourService, getToursService, getTourByIdService, updateProductByI
 
 exports.getTours = async (req, res, next) => {
     try {
-        const result = await getToursService();
+
+        const queries = {};
+
+        if (req.query.sort) {
+            const sortBy = req.query.sort.split(",").join(' ');
+            queries.sortBy = sortBy;
+        }
+
+        if (req.query.fields) {
+            const fields = req.query.fields.split(',').join(' ')
+            queries.fields = fields;
+        }
+
+        if (req.query.page) {
+            const { page = 1, limit = 5 } = req.query;
+            const skip = (parseInt(page) - 1) * parseInt(limit)
+            queries.skip = skip;
+            queries.limit = parseInt(limit);
+        }
+
+        const result = await getToursService(queries);
         res.status(200).json({
             status: "successsful",
             totalToors: result.length,
