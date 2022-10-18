@@ -8,7 +8,8 @@ app.use(cors());
 
 //Routes
 const tourRoute = require("./routes/tour.route");
-app.use("/api/v1.0/tours", tourRoute)
+
+app.use("/api/v1.0", tourRoute)
 
 app.get("/", (req, res) => {
     res.send("Tour Management rest API!")
