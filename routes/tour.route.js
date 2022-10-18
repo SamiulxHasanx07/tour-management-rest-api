@@ -12,7 +12,10 @@ router.route("/tours/:id")
     .get(viewCount, tourController.getTourByID)
 
 router.route("/tour/:id")
-    .patch(tourController.updateProductById)
+    .patch(tourController.updateTourById)
+
+router.route("/tour/trending")
+    .get(tourController.trendingTours)
 
 
 module.exports = router;

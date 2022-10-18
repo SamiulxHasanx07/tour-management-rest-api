@@ -1,4 +1,4 @@
-const { createTourService, getToursService, getTourByIdService, updateProductByIdService } = require("../services/tour.services");
+const { createTourService, getToursService, getTourByIdService, updateProductByIdService, trendingTourService } = require("../services/tour.services");
 
 exports.getTours = async (req, res, next) => {
     try {
@@ -56,11 +56,11 @@ exports.getTourByID = async (req, res, next) => {
     }
 }
 
-exports.updateProductById = async (req, res, next) => {
+exports.updateTourById = async (req, res, next) => {
     try {
         const { id } = req.params;
         const data = req.body;
-        const result = await updateProductByIdService(id, data);
+        const result = await updateTourByIdService(id, data);
 
         if (!result.modifiedCount) {
             res.status(204).json({
@@ -82,5 +82,22 @@ exports.updateProductById = async (req, res, next) => {
             error: error.message
         })
     }
+}
 
+exports.trendingTours = async (req, res, next) => {
+    try {
+        const result = await trendingTourService();
+
+        res.status(200).json({
+            status: "successsful",
+            message: "Top 3 Trending Tours",
+            data: result
+        })
+    } catch (error) {
+        res.status(400).json({
+            status: "failed",
+            message: "Something wrong please check and try again",
+            error: error.message
+        })
+    }
 }
