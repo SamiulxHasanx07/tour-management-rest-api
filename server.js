@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const app = require("./app");
+const cors = require("cors");
+
+app.use(cors());
 
 // database connection
 mongoose.connect(process.env.LOCAL_DATABASE).then(() => {
