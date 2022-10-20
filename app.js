@@ -15,4 +15,8 @@ app.get("/", (req, res) => {
     res.send("Tour Management rest API!")
 })
 
+app.all('*', (req, res) => {
+    res.send('Router is not found!')
+})
+
 module.exports = app;
