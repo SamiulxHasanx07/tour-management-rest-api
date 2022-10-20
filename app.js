@@ -1,10 +1,10 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
+const app = express();
 
 // middlewares
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 //Routes
 const tourRoute = require("./routes/tour.route");
